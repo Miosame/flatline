@@ -24,7 +24,7 @@ while ! docker-compose exec mysql mysqladmin --user="$DB_USERNAME" --password="$
     sleep 10
 done
 
-# start the rest of containers
+# bring the containers up
 docker-compose up -d
 
 # migrate the database
