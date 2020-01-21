@@ -9,7 +9,7 @@ simple, beautiful & fully-responsive local network monitoring
 
 # variables explained
 
-This section explains the variables (except the ones to be changed in `instructions`) that are of interest inside `docker-compose.yml`
+This section explains the variables that are of interest inside `.env`
 
 - `SCAN_INTERVAL` = how often a local network scan should happen, value in seconds (300 by default)
 - `SCAN_RANGE` = the network range that should be scanned, possible formats are:
@@ -19,7 +19,7 @@ This section explains the variables (except the ones to be changed in `instructi
 # instructions
 
 1. `git clone --depth=1 https://github.com/Miosame/flatline.git`
-2. change all values marked as `XXX` inside `docker-compose.yml`
+2. change all values marked as `XXX` inside `.env`
 3. `cd flatline/ && chmod +x ./install.sh && ./install.sh`
 4. wait for it to finish and it'll by default expose to `http://localhost`
 5. now depending on what value you've set for `SCAN_INTERVAL` - wait for one rotation of that interval and shortly after all your local devices should show up in the dashboard
