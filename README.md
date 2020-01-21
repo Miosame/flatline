@@ -19,10 +19,11 @@ This section explains the variables that are of interest inside `.env`
 # instructions
 
 1. `git clone --depth=1 https://github.com/Miosame/flatline.git`
-2. change all values marked as `XXX` inside `.env`
-3. `cd flatline/ && chmod +x ./install.sh && ./install.sh`
-4. wait for it to finish and it'll by default expose to `http://localhost`
-5. now depending on what value you've set for `SCAN_INTERVAL` - wait for one rotation of that interval and shortly after all your local devices should show up in the dashboard
+2. make sure you are in the new directory `cd flatline/`
+3. change all values marked as `XXX` inside `.env`
+4. `chmod +x ./install.sh && ./install.sh`
+5. wait for it to finish and it'll by default expose to `http://localhost`
+6. now depending on what value you've set for `SCAN_INTERVAL` - wait for one rotation of that interval and shortly after all your local devices should show up in the dashboard
 
 # notes
 
