@@ -1,0 +1,67 @@
+$font: #4D4D4D;
+$header: #F2F5F7;
+$border: #E2E8EB;
+
+$shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);
+$border-radius: 10px;
+
+$online-gradient: linear-gradient(180deg, #65EEA2 0%, #06C2A5 100%);
+$offline-gradient: linear-gradient(180deg, #EE65A7 0%, #C20677 100%);
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(180deg, #F9F9F9 0%, #FFFFFF 100%);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body,html {
+    color: $font;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.node-item:last-of-type {
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+div {
+    &.online {
+        background: $online-gradient;
+    }  
+    
+    &.offline {
+        background: $offline-gradient;
+    }
+}
+
+.scss {
+    &--background {
+        &-header {
+            background: $header;
+        }
+    }
+    
+    &--border {
+        border: 1px solid $border;
+
+        &-top {
+            &-0 {
+                border-bottom: 0;
+            }
+        }
+        
+        &-bottom {
+            &-0 {
+                border-bottom: 0;
+            }
+        }
+    }
+}
