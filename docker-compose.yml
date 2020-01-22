@@ -19,6 +19,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       SCAN_RANGE: ${SCAN_RANGE}
       SCAN_INTERVAL: ${SCAN_INTERVAL}
+      DB_PORT: ${DB_PORT_CUSTOM}
     network_mode: host
     depends_on:
       - mysql
@@ -33,7 +34,7 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "${DB_PORT_CUSTOM}:3306"
   php:
     build: ./php-mysql-image
     ports:
