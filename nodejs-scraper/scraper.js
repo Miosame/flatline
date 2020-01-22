@@ -13,7 +13,7 @@ function cleanENV(input){
 
 // mysql
 const connection = mysql.createConnection({
-	host: "mysql",
+	host: "127.0.0.1",
 	user: cleanENV(process.env.MYSQL_USER) || "root",
 	password: cleanENV(process.env.MYSQL_PASSWORD) || "XXX",
 	database: cleanENV(process.env.MYSQL_DATABASE) || "flatline"

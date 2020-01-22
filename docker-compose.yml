@@ -32,6 +32,8 @@ services:
         MYSQL_ALLOW_EMPTY_PASSWORD: 0
     volumes:
       - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
   php:
     build: ./php-mysql-image
     ports:
