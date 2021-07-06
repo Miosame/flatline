@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "get-ip-range": "^2.1.0",
+    "get-ip-range": "^4.0.0",
     "getmac": "^5.0.0",
     "local-devices": "^3.0.0",
     "mysql2": "^2.1.0",
