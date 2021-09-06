@@ -8,7 +8,7 @@ cat $(pwd)/php-mysql-image/html/.env.example >> tmp0
 awk -F "=" '!a[$1]++' tmp0 > tmp1 && mv tmp1 $(pwd)/php-mysql-image/html/.env && rm ./tmp0
 
 # install vendor files
-docker run --rm -v $(pwd)/php-mysql-image/html:/app composer install
+docker run --rm -v $(pwd)/php-mysql-image/html:/app composer install --ignore-platform-reqs
 
 # generate laravel app-key
 docker run -t --rm -v $(pwd)/php-mysql-image/html/:/var/www vcarreira/artisan key:generate

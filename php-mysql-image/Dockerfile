@@ -1,4 +1,4 @@
-FROM php:7.2.15-fpm-stretch
+FROM php:8-fpm-buster
 WORKDIR /usr/share/nginx/html
 RUN apt-get update
 RUN docker-php-ext-install pdo_mysql
