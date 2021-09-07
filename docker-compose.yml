@@ -25,7 +25,7 @@ services:
     depends_on:
       - mysql
   mysql:
-    image: mysql:5.7
+    image: mariadb:10
     environment:
         MYSQL_DATABASE: ${DB_DATABASE}
         MYSQL_USER: ${DB_USERNAME}
