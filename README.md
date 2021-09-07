@@ -11,6 +11,7 @@ simple, beautiful & fully-responsive local network monitoring
 
 This section explains the variables that are of interest inside `.env`
 
+- `SCAN_DNS_SERVER` = only change this if your router supports local dns resolving, value is the IP of your router, e.g. `192.168.0.1`
 - `SCAN_INTERVAL` = how often a local network scan should happen, value in seconds (300 by default)
 - `SCAN_RANGE` = the network range that should be scanned, possible formats are:
   - `"192.168.0.2-192.168.0.254"`

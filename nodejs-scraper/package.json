@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "get-ip-range": "^2.1.0",
-    "getmac": "^5.0.0",
-    "local-devices": "^3.0.0",
-    "mysql2": "^2.1.0",
+    "get-ip-range": "^4.0.1",
+    "getmac": "^5.20.0",
+    "local-devices": "^3.1.0",
+    "mysql2": "^2.3.0",
     "ping-lite": "^2.0.2"
   }
 }

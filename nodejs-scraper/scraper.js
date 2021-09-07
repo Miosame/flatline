@@ -1,10 +1,10 @@
 const mysql = require("mysql2");
-const { promisify } = require("util");
-const getIPRange = require('get-ip-range');
+const {getIPRange} = require('get-ip-range');
 const Ping = require('ping-lite');
 const find = require('local-devices');
 const os = require('os');
 const localmacaddress = require('getmac').default;
+const dns = require('dns');
 
 // in case there's quotes passed as env
 function cleanENV(input){
@@ -31,15 +31,27 @@ function error(err) {
 function scanNetwork() {
 	return new Promise(async (resolve, reject) => {
 		let hosts = [];
-
 		await Promise.all(ipv4CIDR.map(async (hostIP) => {	
 			let alive = await isAlive(hostIP);
 
 			if(alive) {
 				let device = await getMACHostname(hostIP);
 				if(device) {
+					let hostname = device.name;
+					// check to see if we have the hostname available from the other scan
+					if(hostname === "?" && process.env.SCAN_DNS_SERVER && process.env.SCAN_DNS_SERVER.length > 0) {
+						dns.setServers([ process.env.SCAN_DNS_SERVER ]);
+						try {
+							await dns.promises.reverse(hostIP).then((hostnames) => {
+								hostname = hostnames.join(", ")
+							})
+						} catch (error) {
+							hostname = null;
+						}
+					}
+
 					hosts.push({
-						hostname: ((device.name === "?") ? null : device.name),
+						hostname: ((hostname === "?") ? null : hostname),
 						ipaddr4: device.ip,
 						macaddr: device.mac
 					});
