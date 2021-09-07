@@ -39,7 +39,7 @@ function scanNetwork() {
 				if(device) {
 					let hostname = device.name;
 					// check to see if we have the hostname available from the other scan
-					if(hostname === "?" && process.env.SCAN_DNS_SERVER !== "") {
+					if(hostname === "?" && process.env.SCAN_DNS_SERVER && process.env.SCAN_DNS_SERVER.length > 0) {
 						dns.setServers([ process.env.SCAN_DNS_SERVER ]);
 						try {
 							await dns.promises.reverse(hostIP).then((hostnames) => {
