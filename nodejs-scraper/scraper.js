@@ -38,9 +38,10 @@ function scanNetwork() {
 				let device = await getMACHostname(hostIP);
 				if(device) {
 					let hostname = device.name;
+                    const dns_server = cleanENV(process.env.SCAN_DNS_SERVER)
 					// check to see if we have the hostname available from the other scan
-					if(hostname === "?" && process.env.SCAN_DNS_SERVER && process.env.SCAN_DNS_SERVER.length > 0) {
-						dns.setServers([ process.env.SCAN_DNS_SERVER ]);
+					if(hostname === "?" && dns_server && dns_server.length > 0) {
+						dns.setServers([ dns_server ]);
 						try {
 							await dns.promises.reverse(hostIP).then((hostnames) => {
 								hostname = hostnames.join(", ")
