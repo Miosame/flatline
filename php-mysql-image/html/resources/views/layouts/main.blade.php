@@ -8,6 +8,9 @@
         <link href="/resources/fontawesome-free-5.12.0-web/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/tailwind.min.css">
         <link rel="stylesheet" href="/css/main.css">
+        @if(Route::current()->getName() == 'index' && env('DASHBOARD_REFRESH', 0) != 0)
+            <meta http-equiv="refresh" content="{{env('DASHBOARD_REFRESH')}}">
+        @endif
     </head>
     <body>
         <div class='block mx-auto mb-10 w-full px-5 md:w-1/3 max-w-xs'>

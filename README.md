@@ -11,6 +11,7 @@ simple, beautiful & fully-responsive local network monitoring
 
 This section explains the variables that are of interest inside `.env`
 
+- `DASHBOARD_REFRESH` = refreshes the index page every X seconds (set to 0 to deactivate)
 - `HTTP_PORT` = port on which the dashboard will be reachable on
 - `SCAN_DNS_SERVER` = change this if your router supports local dns, value is the IP of your router, e.g. `192.168.0.1`
 - `SCAN_INTERVAL` = how often a local network scan should happen, value in seconds (300 by default)

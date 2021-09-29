@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'NodeController@index');
+Route::get('/', 'NodeController@index')->name("index");
 Route::resource('nodes', 'NodeController')->only([
     'index', 'edit', 'update', 'destroy'
 ]);
