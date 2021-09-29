@@ -11,6 +11,11 @@ function cleanENV(input){
 	return input.replace(/(^")|("$)/g, '');
 }
 
+function expandRange(range) {
+    if(!range) return []
+    return range.split(",").map(x => getIPRange(x)).flat(Infinity)
+}
+
 // mysql
 const connection = mysql.createConnection({
 	host: "127.0.0.1",
@@ -21,7 +26,8 @@ const connection = mysql.createConnection({
 });
 
 const ipRange = cleanENV(process.env.SCAN_RANGE) || "192.168.0.2-192.168.0.254";
-const ipv4CIDR = getIPRange(ipRange);
+const ignoreRange = expandRange(cleanENV(process.env.IGNORE_RANGE)) || [];
+const scanPool = expandRange(ipRange).filter(x => !ignoreRange.includes(x));
 const scan_interval = process.env.SCAN_INTERVAL || 50;
 
 function error(err) {
@@ -31,7 +37,7 @@ function error(err) {
 function scanNetwork() {
 	return new Promise(async (resolve, reject) => {
 		let hosts = [];
-		await Promise.all(ipv4CIDR.map(async (hostIP) => {	
+		await Promise.all(scanPool.map(async (hostIP) => {	
 			let alive = await isAlive(hostIP);
 
 			if(alive) {

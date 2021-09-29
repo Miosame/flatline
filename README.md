@@ -15,9 +15,11 @@ This section explains the variables that are of interest inside `.env`
 - `HTTP_PORT` = port on which the dashboard will be reachable on
 - `SCAN_DNS_SERVER` = change this if your router supports local dns, value is the IP of your router, e.g. `192.168.0.1`
 - `SCAN_INTERVAL` = how often a local network scan should happen, value in seconds (300 by default)
-- `SCAN_RANGE` = the network range that should be scanned, possible formats are:
+- `SCAN_RANGE` / `IGNORE_RANGE` = the network range that should be scanned or ignored, possible formats are:
   - `"192.168.0.2-192.168.0.254"`
   - `"192.168.1.134/29"`
+  - `"192.168.1.134/29,192.168.2.134/29"`
+  - `"192.168.0.2-192.168.0.254,192.168.2.2-192.168.2.254"`
 - `DB_PORT_CUSTOM` = if you have another mysql database listening on port :3306, then for now you want to change it here to another port, more details: [#7](https://github.com/Miosame/flatline/issues/7) - in the future that might not be necessary.
 
 # instructions
